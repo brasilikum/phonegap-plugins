@@ -23,7 +23,7 @@ from urllib2 import urlopen
 from urllib import urlencode
 import sys
 
-def translate (in_lang, out_lang, input):
+def translate(in_lang, out_lang, input):
     """Translate the input from in_lang to out_lang using Google Translate"""
     # Create the URL
     langpair = '%s|%s' % (in_lang, out_lang)
@@ -39,8 +39,7 @@ def translate (in_lang, out_lang, input):
     start_index = content.find('"translatedText":"') + 18
     translation = content [start_index:]
     end_index = translation.find('"}, "')
-    output = translation[:end_index]
-    return output
+    return translation[:end_index]
 
 # All the languages to translate to
 language_list = ['en', 'ar', 'cs', 'da', 'de', 'es',

@@ -28,7 +28,7 @@ def main():
     for entry in entries:
         (baseName, ext) = os.path.splitext(entry)
         if ext in [".txt", ".jpg", ".gif", ".png"]:
-            if not baseName in images:
+            if baseName not in images:
                 images[baseName] = {"text":"", "image":""}
 
             if ext != ".txt":
