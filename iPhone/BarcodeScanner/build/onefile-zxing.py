@@ -102,10 +102,7 @@ def uniqueize(strings):
     for string in strings:
         patterns[string] = re.compile(r"(\W*)(" + string + ")(\W*)")
 
-    counter = 0
-    for file in files:
-        counter = counter + 1
-
+    for counter, file in enumerate(files, start=1):
         for string in strings:
             pattern = patterns[string]
             replace = r'\1\2_%d\3' % (counter)
@@ -158,7 +155,6 @@ class SourceFile:
 
     def getProjectIncludes(self):
         return self.pIncludes[:]
-        pass
 
     def getSystemIncludes(self):
         return self.sIncludes[:]
